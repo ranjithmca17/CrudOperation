@@ -132,7 +132,7 @@ const All = () => {
   useEffect(() => {
     const fetchAllValues = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/get');
+        const response = await axios.get('https://crudoperation-backend-n0ye.onrender.com/get');
         setGetAll(response.data.data); // Set the fetched data to state
         setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
@@ -157,13 +157,13 @@ const All = () => {
     try {
       if (editingId) {
         // If editing an existing entry, update the data
-        const response = await axios.put(`http://localhost:5000/put/${editingId}`, data);
+        const response = await axios.put(`https://crudoperation-backend-n0ye.onrender.com/put/${editingId}`, data);
         console.log('Update successful:', response);
         // Update the state with the modified data
         setGetAll(getAll.map((item) => (item._id === editingId ? response.data.data : item)));
       } else {
         // If adding new data, post the data
-        const response = await axios.post('http://localhost:5000/post', data);
+        const response = await axios.post('https://crudoperation-backend-n0ye.onrender.com/post', data);
         console.log('Form data submitted:', response);
         setGetAll([...getAll, response.data.data]); // Add new data to the table without reloading
       }
@@ -190,7 +190,7 @@ const All = () => {
   // Delete data by id
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/delete/${id}`);
+      const response = await axios.delete(`https://crudoperation-backend-n0ye.onrender.com/delete/${id}`);
       console.log('Delete successful:', response);
       setGetAll(getAll.filter((item) => item._id !== id)); // Remove deleted item from local state
     } catch (error) {
