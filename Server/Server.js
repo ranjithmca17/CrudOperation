@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB connection
-const mongoUrl = "mongodb://localhost:27017/crud";
+const mongoUrl = "mongodb+srv://food:7806872931@cluster0.zrjn50v.mongodb.net/crud";
 mongoose
   .connect(mongoUrl)
   .then(() => console.log("MongoDB connected"))
